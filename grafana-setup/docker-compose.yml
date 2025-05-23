@@ -1,0 +1,24 @@
+services:
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    restart: unless-stopped
+
+    ports:
+      - "3000:3000" # Grafana web UI on host port 3000
+
+    volumes:
+      - ~/docker_container_storage/grafana/data:/var/lib/grafana
+      - ~/docker_container_storage/grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
+
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: admin
+
+    networks:
+      - server_default_network # Connects Grafana to your shared network
+
+# Define the shared network as external at the top level
+networks:
+  server_default_network:
+    external: true # This tells Docker Compose that the network already exists
