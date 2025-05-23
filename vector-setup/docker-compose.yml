@@ -10,7 +10,7 @@ services:
       - "514:514/udp" # Map host port 514 UDP to container port 514 UDP for Syslog
 
     volumes:
-      - ./vector_config/vector.yaml:/etc/vector/vector.yaml:ro # Mount your config file
+      - ~/docker_container_storage/vector/vector.yaml:/etc/vector/vector.yaml:ro # Mount your config file
 
     networks:
       - server_default_network # Attach this service to the same shared network
