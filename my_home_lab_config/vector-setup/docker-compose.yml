@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  vector:
+    image: timberio/vector:0.36.0-debian
+    container_name: vector-syslog-clickhouse
+    restart: unless-stopped
+
+    ports:
+      - "514:514/udp" # Map host port 514 UDP to container port 514 UDP for Syslog
+
+    volumes:
+      - ./vector_config/vector.yaml:/etc/vector/vector.yaml:ro # Mount your config file
+
+    networks:
+      - server_default_network # Attach this service to the same shared network
+
+# Define the shared network as external at the top level
+networks:
+  server_default_network:
+    external: true # This tells Docker Compose that the network already exists

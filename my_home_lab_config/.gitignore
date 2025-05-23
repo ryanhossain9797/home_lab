@@ -1,0 +1,26 @@
+# Docker
+*.env
+.docker/
+docker-compose.override.yml
+docker-compose.*.yml
+!docker-compose.yml
+
+# Logs
+*.log
+logs/
+*.gz
+
+# Data
+data/
+*.db
+*.sqlite
+*.sqlite3
+
+# Operating System
+.DS_Store
+Thumbs.db
+
+# IDEs
+.idea/
+.vscode/
+*.iml
