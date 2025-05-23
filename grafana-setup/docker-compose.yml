@@ -12,8 +12,9 @@ services:
       - ~/docker_container_storage/grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
 
     environment:
-      GF_SECURITY_ADMIN_USER: admin
-      GF_SECURITY_ADMIN_PASSWORD: admin
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_INSTALL_PLUGINS=grafana-clickhouse-datasource
 
     networks:
       - server_default_network # Connects Grafana to your shared network
