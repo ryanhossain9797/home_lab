@@ -1,0 +1,12 @@
+[sources.routeros]
+type = "file"
+include = [ "/var/log/nginx/my_access.log" ]
+read_from = "end"
+
+[sinks.clickhouse]
+type = "clickhouse"
+inputs = ["routeros"]
+endpoint = "http://clickhouse:8123"
+database = "my_testing_db"
+table = "logs"
+skip_unknown_fields = true
