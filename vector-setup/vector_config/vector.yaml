@@ -1,15 +1,18 @@
-[sources.routeros]
-type = "syslog"
-address = "0.0.0.0:514"
-mode = "udp"
+sources:
+  routeros:
+    type: syslog
+    address: "0.0.0.0:514"
+    mode: udp
 
-[sinks.clickhouse]
-type = "clickhouse"
-inputs = ["routeros"]
-endpoint = "http://clickhouse:8123"
-database = "my_testing_db"
-table = "logs"
-skip_unknown_fields = true
-user = "default"
-password = "ageraone1"
-basic_auth = true
+sinks:
+  clickhouse:
+    type: clickhouse
+    inputs: ["routeros"]
+    endpoint: "http://clickhouse:8123"
+    database: "my_testing_db"
+    table: "logs"
+    skip_unknown_fields: true
+    auth:
+      strategy: basic
+      user: "default"
+      password: "ageraone1"
