@@ -9,8 +9,8 @@ sinks:
     type: clickhouse
     inputs: ["routeros"]
     endpoint: "http://clickhouse:8123"
-    database: "my_testing_db"
-    table: "logs"
+    database: "logs"
+    table: "syslog"
     skip_unknown_fields: true
     auth:
       strategy: basic
