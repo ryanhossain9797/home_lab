@@ -1,7 +1,7 @@
 [sources.routeros]
-type = "file"
-include = [ "/var/log/nginx/my_access.log" ]
-read_from = "end"
+type = "syslog"
+address = "0.0.0.0:514"
+mode = "udp"
 
 [sinks.clickhouse]
 type = "clickhouse"
@@ -10,3 +10,6 @@ endpoint = "http://clickhouse:8123"
 database = "my_testing_db"
 table = "logs"
 skip_unknown_fields = true
+user = "default"
+password = "ageraone1"
+basic_auth = true
