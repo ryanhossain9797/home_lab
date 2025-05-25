@@ -37,7 +37,7 @@ datasources:
       #   traceIdColumn: <string>
       #   ...Column: <string>
     secureJsonData:
-      password: ageraone1
+      password: <password>
       # tlsCACert: <string>
       # tlsClientCert: <string>
       # tlsClientKey: <string>
